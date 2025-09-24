@@ -21,7 +21,13 @@ func readHeader(r *bufio.Reader) (header, error) {
 	var h header
 	for {
 		l, err := tr.ReadLine()
-		if err != nil && err != io.EOF {
+		if err != nil {
+			fmt.Println("==================================")
+			fmt.Println("l", l)
+			fmt.Println("err", err)
+			fmt.Println("err.Error()", err.Error())
+			fmt.Println("error is:", errors.Is(err, io.EOF))
+			fmt.Println("==================================")
 			return h, fmt.Errorf("failed to read header: %v", err)
 		}
 
