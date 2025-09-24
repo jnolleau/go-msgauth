@@ -28,6 +28,14 @@ var headerTests = []struct {
 			"Subject: Your Name\r\n" +
 			"\r\n",
 	},
+	{
+		h: header{
+			"From: <mistuha@kiminonawa.moe>\r\n",
+			"Subject: Your Name\r\n",
+		},
+		s: "From: <mistuha@kiminonawa.moe>\r\n" +
+			"Subject: Your Name",
+	},
 }
 
 func TestReadHeader(t *testing.T) {
